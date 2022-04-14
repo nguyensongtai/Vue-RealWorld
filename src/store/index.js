@@ -86,7 +86,7 @@ export default new Vuex.Store({
     deleteAri: [],
     getSlug: [],
     slug: localStorage.getItem("slug"),
-    perPage:[]
+    perPage: []
 
 
   },
@@ -97,14 +97,14 @@ export default new Vuex.Store({
       // lasdhkasdas
       switch (state.currentFilter) {
         case "default":
-        
+
           state.allTask = state.todos
           console.log(state.allTask)
           return state.todos;
         case "get":
           return state.todos
         case "showAll":
-         
+
           return state.todos
         case "completed":
           return state.todo.filter((item) => item.completed);
@@ -173,17 +173,17 @@ export default new Vuex.Store({
 
       state.tags = data
     },
-    loadLists(state, {articles,  articlesCount}) {
+    loadLists(state, { articles, articlesCount }) {
 
       state.lists = articles
       state.articlesCount = articlesCount
-      
+
 
     },
     loadPages(state, data) {
 
       state.pages = data
-    
+
     },
     loadCmts(state, data) {
 
@@ -263,7 +263,7 @@ export default new Vuex.Store({
     deleteLike(state, delLike) {
       state.delLike = delLike
     },
-    
+
 
 
   },
@@ -327,12 +327,12 @@ export default new Vuex.Store({
     loadLists({ commit, state }) {
       const currentPage = state.currentPage
       const offset = (currentPage - 1) * 10
-  
+
       Axios.get(`https://conduit.productionready.io/api/articles?limit=10&offset=${offset}`)
         .then(data => {
-          const {articles, articlesCount} = data.data
-         
-          commit('loadLists', {articles: articles, articlesCount: articlesCount})
+          const { articles, articlesCount } = data.data
+
+          commit('loadLists', { articles: articles, articlesCount: articlesCount })
         })
     },
     // loadPages({ commit }) {
@@ -370,7 +370,7 @@ export default new Vuex.Store({
         })
     },
     isActivePagination({ commit }, currentPage) {
-     
+
       commit('isActivePagination', currentPage)
 
     },
@@ -388,7 +388,7 @@ export default new Vuex.Store({
           //   count += 1
           //   element.index = count
           // });
-         
+
           commit('acticleAuthor', data.data.articles)
         })
     },

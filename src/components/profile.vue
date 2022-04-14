@@ -6,8 +6,7 @@
         <div class="container">
           <div class="row">
             <div class="col-xs-12 col-md-10 offset-md-1">
-             
-              <img  :src="image" class="user-img" />
+              <img :src="image" class="user-img" />
               <h4>{{ username }}</h4>
               <p>{{ bio }}</p>
               <a
@@ -32,7 +31,8 @@
                 <a
                   class="nav-link"
                   :href="`/conduit/user/profile/far/${user.username}`"
-                  >Favorited Articles</a>
+                  >Favorited Articles</a
+                >
               </li>
             </ul>
           </div>
@@ -54,7 +54,7 @@
                 </div>
                 <div class="pull-xs-right">
                   <button class="btn btn-sm btn-outline-primary">
-                    <i class="ion-heart">{{value.favoritesCount}}</i
+                    <i class="ion-heart">{{ value.favoritesCount }}</i
                     ><!-- react-text: 224 -->
                     <!-- /react-text --><!-- react-text: 225 --><!-- /react-text -->
                   </button>
@@ -69,13 +69,11 @@
                 <ul class="tag-list"></ul
               ></router-link>
             </div>
-            
           </div>
         </div>
-        
       </div>
     </div>
-    
+
     <footerConduit />
   </div>
 </template>
@@ -84,7 +82,7 @@
 import { mapActions, mapGetters, mapState } from "vuex";
 import footerConduit from "./footerConduit";
 import headerConduit from "./headerConduit";
-import Axios from 'axios'
+import Axios from "axios";
 export default {
   components: {
     footerConduit,
@@ -97,10 +95,10 @@ export default {
       // image: localStorage.getItem("image"),
       name: "",
       author: this.$route.params.username,
-      body:"",
-      tagList:"",
-      title:"",
-      description:"",
+      body: "",
+      tagList: "",
+      title: "",
+      description: "",
       user: {
         image: "",
         username: "",
@@ -108,48 +106,46 @@ export default {
       },
     };
   },
-  
-   async mounted() {
-     this.loadHeaderAuthor(this.author);
-  //  if (localStorage.getItem("slug")) {
-  //     try {
-  //       this.slug = JSON.parse(localStorage.getItem("slug"));
-  //       this.body = JSON.parse(localStorage.getItem("body"));
-  //       this.description = JSON.parse(localStorage.getItem("description"));
-  //       this.tagList = JSON.parse(localStorage.getItem("tagList"));
-  //       this.title = JSON.parse(localStorage.getItem("title"));
-  //     } catch (e) {
-  //       localStorage.removeItem("slug");
-  //       localStorage.removeItem("body");
-  //       localStorage.removeItem("description");
-  //       localStorage.removeItem("tagList");
-  //       localStorage.removeItem("title");
-  //     }
-  //   }
-     this.user = await this.getUser();
-     this.acticleAuthor(this.author)
+
+  async mounted() {
+    this.loadHeaderAuthor(this.author);
+    //  if (localStorage.getItem("slug")) {
+    //     try {
+    //       this.slug = JSON.parse(localStorage.getItem("slug"));
+    //       this.body = JSON.parse(localStorage.getItem("body"));
+    //       this.description = JSON.parse(localStorage.getItem("description"));
+    //       this.tagList = JSON.parse(localStorage.getItem("tagList"));
+    //       this.title = JSON.parse(localStorage.getItem("title"));
+    //     } catch (e) {
+    //       localStorage.removeItem("slug");
+    //       localStorage.removeItem("body");
+    //       localStorage.removeItem("description");
+    //       localStorage.removeItem("tagList");
+    //       localStorage.removeItem("title");
+    //     }
+    //   }
+    this.user = await this.getUser();
+    this.acticleAuthor(this.author);
   },
   methods: {
     ...mapActions(["loadHeaderAuthor", "acticleAuthor", "loadSlug"]),
-  async getUser() {
+    async getUser() {
       let data = await Axios.get("https://conduit.productionready.io/api/user");
 
       return data.data.user;
     },
-
   },
   computed: {
     ...mapState(["profile", "users", "slugs"]),
     image() {
-      return this.profile.profile && this.profile.profile.image
+      return this.profile.profile && this.profile.profile.image;
     },
-     username() {
-      return this.profile.profile && this.profile.profile.username
+    username() {
+      return this.profile.profile && this.profile.profile.username;
     },
-     bio() {
-      return this.profile.profile && this.profile.profile.bio
-    }
-   
+    bio() {
+      return this.profile.profile && this.profile.profile.bio;
+    },
   },
 };
 </script>

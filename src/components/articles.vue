@@ -1,11 +1,9 @@
 <template>
   <div>
-    
     <div class="article-preview">
       <div class="article-meta">
-        <article v-for="(value, index) in lists" :key="index" :art="value" />  
-    </div>
-
+        <article v-for="(value, index) in lists" :key="index" :art="value" />
+      </div>
     </div>
   </div>
 </template>

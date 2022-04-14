@@ -1,5 +1,5 @@
 <template>
- <li class="page-item">
+  <li class="page-item">
     <div
       class="page-link"
       href=""
@@ -8,7 +8,7 @@
     >
       {{ pagess }}
     </div>
-  </li> 
+  </li>
 </template>
 
 <script>
@@ -20,9 +20,7 @@ export default {
     load: Object,
   },
   data() {
-    return {
-     
-    };
+    return {};
   },
   methods: {
     ...mapActions(["loadLists", "isActivePagination"]),
@@ -34,7 +32,7 @@ export default {
       );
     },
   },
- 
+
   computed: {
     ...mapState([
       "currentPage",
@@ -44,7 +42,7 @@ export default {
       "pages",
       "callback",
     ]),
-  }
+  },
 };
 </script>
 

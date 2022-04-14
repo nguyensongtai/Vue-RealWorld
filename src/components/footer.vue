@@ -20,9 +20,7 @@ import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
   data() {
-    return {
-     
-    };
+    return {};
   },
   // mounted(){
   //    this.allTask = this.todos
@@ -33,7 +31,7 @@ export default {
     ...mapActions(["filterData"]),
     ...mapActions(["showAll"]),
     ...mapActions(["setFilter"]),
-    ...mapActions(['load']),
+    ...mapActions(["load"]),
     checkComplete(value) {
       this.listRender.forEach(function (todo) {
         todo.completed = value;

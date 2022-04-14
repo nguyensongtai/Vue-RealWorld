@@ -1,6 +1,5 @@
 <template>
   <div>
-    
     <headerConduit />
     <div class="article-page">
       <div class="banner">
@@ -115,7 +114,7 @@ export default {
       },
       contentComment: "",
       listComment: [],
-     id: "",
+      id: "",
     };
   },
   async created() {
@@ -123,7 +122,7 @@ export default {
     //console.log(this.$route, "ss");
     this.article = await this.getArticleBySlug();
     this.listComment = await this.getListComment();
-    
+
     this.user = await this.getUser();
 
     //  this.loadSlug();
@@ -183,15 +182,13 @@ export default {
       );
       this.id = comments.data.comments[0].id;
       return comments.data.comments;
-       
-      
     },
     async getUser() {
       let data = await Axios.get("https://conduit.productionready.io/api/user");
       return data.data.user;
     },
     async postComment() {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
       const headers = {
         authorization: ` Token ${token}`,
       };
@@ -201,9 +198,8 @@ export default {
             body: this.contentComment,
           },
         };
-        
+
         await Axios({
-          
           method: "POST",
           headers: headers,
           url: `https://conduit.productionready.io/api/articles/${this.slug}/comments`,
@@ -232,7 +228,7 @@ export default {
             body: this.contentComment,
           },
         };
-      
+
         await Axios({
           method: "DELETE",
           headers: headers,

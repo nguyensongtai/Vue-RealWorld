@@ -7,11 +7,11 @@
           <div class="row">
             <div class="col-xs-12 col-md-10 offset-md-1">
               <img :src="`${Profile.image}`" class="user-img" />
-              <h4>{{Profile.username}}</h4>
+              <h4>{{ Profile.username }}</h4>
               <p></p>
               <button class="btn btn-sm action-btn btn-outline-secondary">
                 <i class="ion-plus-round"></i>
-                Follow {{Profile.username}}
+                Follow {{ Profile.username }}
               </button>
             </div>
           </div>
@@ -23,12 +23,16 @@
             <div class="articles-toggle">
               <ul class="nav nav-pills outline-active">
                 <li class="nav-item">
-                  <a class="nav-link active" :href="`/conduit/author/${Profile.username}`"
+                  <a
+                    class="nav-link active"
+                    :href="`/conduit/author/${Profile.username}`"
                     >My Articles</a
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" :href="`/conduit/author/favorited/${Profile.username}`"
+                  <a
+                    class="nav-link"
+                    :href="`/conduit/author/favorited/${Profile.username}`"
                     >Favorited Articles</a
                   >
                   <!-- <router-link :to="`/conduit/author/favorited/${profile.author.username}`">Favorited Articles</router-link> -->
@@ -84,13 +88,11 @@ export default {
   data() {
     return {
       author: this.$route.params.username,
-     
     };
   },
   mounted() {
     this.loadHeaderAuthor(this.$route.params.username);
     this.loadAuthors(this.author);
-    
   },
   methods: {
     ...mapActions(["loadHeaderAuthor", "loadAuthors"]),
@@ -98,8 +100,8 @@ export default {
   computed: {
     ...mapState(["authors", "profile"]),
 
-    Profile(){
-       return this.profile.profile
+    Profile() {
+      return this.profile.profile;
     },
     userName() {
       if (this.author && this.author.username) {

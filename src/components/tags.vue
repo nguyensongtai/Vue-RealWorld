@@ -27,9 +27,12 @@
           <yourFeed v-for="(value, index) in feed" :key="index" :feed="value" />
           <nav>
             <ul class="pagination">
-              <page v-for="(val, index) in totalPage" :key="index"
-              :pagess="val"
-              @pageChanged="onPageChange"></page>
+              <page
+                v-for="(val, index) in totalPage"
+                :key="index"
+                :pagess="val"
+                @pageChanged="onPageChange"
+              ></page>
               <!-- <page v-for="(value, index) in pages" :key="index"
                 :pagess="value"
                  @pageChanged="onPageChange"
@@ -72,9 +75,7 @@ export default {
   },
 
   data() {
-    return {
-
-    };
+    return {};
   },
 
   methods: {
@@ -89,7 +90,7 @@ export default {
   },
 
   mounted() {
-    this.loadLists()
+    this.loadLists();
   },
   computed: {
     ...mapState([

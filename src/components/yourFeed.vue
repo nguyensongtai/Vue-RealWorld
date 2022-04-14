@@ -1,16 +1,14 @@
 <template>
   <div>
     <headerConduit />
-      <div class="feed-toggle">
+    <div class="feed-toggle">
       <ul class="nav nav-pills outline-active">
-       
         <li class="nav-item">
-          <a href="/conduit/user/yourfeed" class="nav-link active ">Your Feed</a>
+          <a href="/conduit/user/yourfeed" class="nav-link active">Your Feed</a>
         </li>
-         <li class="nav-item">
-          <a href="/conduit/user" class="nav-link ">Global Feed</a>
+        <li class="nav-item">
+          <a href="/conduit/user" class="nav-link">Global Feed</a>
         </li>
-         
       </ul>
     </div>
     <div class="row">

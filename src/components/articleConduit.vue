@@ -1,7 +1,5 @@
 <template>
-
   <div>
-   
     <div class="article-preview">
       <div class="article-meta">
         <a class="" href="">
@@ -13,7 +11,6 @@
             art.author.username
           }}</router-link>
           <span class="date">{{ Date(art.createdAt) }}</span>
-          
         </div>
         <div class="pull-xs-right">
           <button
@@ -21,10 +18,10 @@
             :class="{ active: this.favorited }"
             @click="like1(i)"
           >
-         
             <i class="ion-heart"></i
             ><!-- react-text: 1165 -->
-            <!-- /react-text --><!-- react-text: 1166 -->{{i}} <!-- /react-text -->
+            <!-- /react-text --><!-- react-text: 1166 -->{{ i }}
+            <!-- /react-text -->
           </button>
         </div>
       </div>
@@ -54,23 +51,26 @@ export default {
       i: this.art.favoritesCount,
       isActive: false,
       favorited: this.art.favorited,
-      token: localStorage.getItem('token')
+      token: localStorage.getItem("token"),
     };
   },
-  created() {
-      
-  },
+  created() {},
   methods: {
     ...mapActions(["loadLists", "likeFavorite", "deleteLike"]),
     like1() {
-       if (this.i = !this.i && this.token) 
-     {  
-       this.likeFavorite(this.slug, this.i = this.favorited + 1, this.favorited =  true)
-     
-       }
-      else if (this.token){
-        {this.deleteLike(this.slug, this.i = this.favorited - 1, this.favorited =  false);
-       
+      if ((this.i = !this.i && this.token)) {
+        this.likeFavorite(
+          this.slug,
+          (this.i = this.favorited + 1),
+          (this.favorited = true)
+        );
+      } else if (this.token) {
+        {
+          this.deleteLike(
+            this.slug,
+            (this.i = this.favorited - 1),
+            (this.favorited = false)
+          );
         }
       }
     },
@@ -95,7 +95,7 @@ export default {
 </script>
 
 <style>
-.active{
+.active {
   background-color: green;
 }
 </style>

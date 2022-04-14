@@ -14,12 +14,11 @@
 </template>
 
 <script>
- import Vuex, { mapActions } from 'vuex'
- 
+import Vuex, { mapActions } from "vuex";
+
 import Header from "./header";
 import Footer from "./footer";
 import Body from "./body";
-
 
 export default {
   // props: ["message"],
@@ -29,23 +28,17 @@ export default {
     Footer,
     Body,
   },
- 
+
   data() {
     return {
       test: "",
-      
     };
   },
 
-  methods: {
- 
-  },
-  computed: {
-   
-  },
+  methods: {},
+  computed: {},
 };
 </script>
 
 <style>
-
 </style>

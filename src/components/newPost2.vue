@@ -94,10 +94,10 @@ export default {
     async putArticleBySlug() {
       try {
         let data = {
-         article: this.article
+          article: this.article,
         };
         const datas = await Axios({
-          url:`https://conduit.productionready.io/api/articles/${this.slug}`,
+          url: `https://conduit.productionready.io/api/articles/${this.slug}`,
           data: data,
           method: "PUT",
         });

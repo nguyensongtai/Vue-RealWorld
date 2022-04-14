@@ -5,7 +5,7 @@
       <div class="banner">
         <div class="container">
           <h1>{{ article.title }}</h1>
-        
+
           <div class="article-meta">
             <a class="" href="#@tainguyen10"><img :src="`${user.image}`" /></a>
             <div class="info">
@@ -15,7 +15,7 @@
             <span
               ><a
                 class="btn btn-outline-secondary btn-sm"
-                  :href="`/conduit/user/newpost/${this.slug}`"
+                :href="`/conduit/user/newpost/${this.slug}`"
                 ><i class="ion-edit"></i
                 ><!-- react-text: 182 -->
                 Edit Article<!-- /react-text --></a
@@ -67,7 +67,7 @@
                 </div>
               </form>
             </div>
-           <div class="card" v-for="(item, index) in listComment" :key="index">
+            <div class="card" v-for="(item, index) in listComment" :key="index">
               <div class="card-block">
                 <p class="card-text">{{ item.body }}</p>
               </div>
@@ -79,7 +79,9 @@
                   href="#@admin1881"
                   >{{ user.username }}</a
                 ><span class="date-posted">{{ user.createdAt }}</span
-                ><span class="mod-options"><i class="ion-trash-a" @click.prevent="deleteComment"></i></span>
+                ><span class="mod-options"
+                  ><i class="ion-trash-a" @click.prevent="deleteComment"></i
+                ></span>
               </div>
             </div>
           </div>
@@ -175,7 +177,7 @@ export default {
         // if (response.status >= 200 && response.status <= 300) {
         // }
         this.listComment = await this.getListComment();
-        console.log(this.listComment,"fadsfadsfsdfafdafdasffsdfsf");
+        console.log(this.listComment, "fadsfadsfsdfafdafdasffsdfsf");
       } catch (error) {
         // if (error.response.status > 400) {
         //   console.log(error);
@@ -183,24 +185,22 @@ export default {
       }
     },
     ...mapActions(["deleteArticle"]),
-   async DeleteArticle() {
-        const token =  this.user.token;
-        const headers = {
-            authorization: ` Token ${token}`,
-        };
-     try {
-       await Axios({
+    async DeleteArticle() {
+      const token = this.user.token;
+      const headers = {
+        authorization: ` Token ${token}`,
+      };
+      try {
+        await Axios({
           method: "DELETE",
           headers: headers,
           url: `https://conduit.productionready.io/api/articles/${this.slug}`,
-        });    
-        this.$router.push("/conduit/user/yourfeed")
-        console.log("aa")  
-     } catch(error){
-
-     }
-  },
-   async deleteComment() {
+        });
+        this.$router.push("/conduit/user/yourfeed");
+        console.log("aa");
+      } catch (error) {}
+    },
+    async deleteComment() {
       console.log("delete");
       const token = localStorage.getItem("token");
 
@@ -213,7 +213,7 @@ export default {
             body: this.contentComment,
           },
         };
-      
+
         await Axios({
           method: "DELETE",
           headers: headers,

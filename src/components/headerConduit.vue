@@ -38,8 +38,10 @@
             >
           </li>
           <li class="nav-item" v-if="isLoggedIn">
-            <router-link class="nav-link" :to="`/conduit/user/profile/${username}`"
-              ><img class="user-pic" :src="image"><!-- react-text: 473 -->{{
+            <router-link
+              class="nav-link"
+              :to="`/conduit/user/profile/${username}`"
+              ><img class="user-pic" :src="image" /><!-- react-text: 473 -->{{
                 username
               }}<!-- /react-text --></router-link
             >
@@ -57,8 +59,8 @@ import { mapActions, mapGetters, mapState } from "vuex";
 export default {
   data() {
     return {
-      username: localStorage.getItem('username'),
-      image: localStorage.getItem('image'),
+      username: localStorage.getItem("username"),
+      image: localStorage.getItem("image"),
       author: "",
       //   user: {
       //   image: "",
@@ -67,15 +69,14 @@ export default {
       // },
     };
   },
- async mounted() {
-  //  this.author = this.$route.params.username;
-   // this.acticleAuthor(this.$route.params.username);
-      // this.user = await this.getUser();
-   // this.loadHeaderAuthorLogin(this.author);
-    
+  async mounted() {
+    //  this.author = this.$route.params.username;
+    // this.acticleAuthor(this.$route.params.username);
+    // this.user = await this.getUser();
+    // this.loadHeaderAuthorLogin(this.author);
   },
   methods: {
-    ...mapActions(["acticleAuthor","loadHeaderAuthor"]),
+    ...mapActions(["acticleAuthor", "loadHeaderAuthor"]),
     async getUser() {
       let data = await Axios.get("https://conduit.productionready.io/api/user");
 
@@ -84,14 +85,13 @@ export default {
   },
   computed: {
     ...mapGetters(["isLoggedIn"]),
-    ...mapState(["users", "profileUser","profile"]),
+    ...mapState(["users", "profileUser", "profile"]),
     //   image() {
     //   return this.profile.profile && this.profile.profile.image
     // },
     //  username() {
     //   return this.profile.profile && this.profile.profile.username
     // },
-   
   },
 };
 </script>

@@ -1,20 +1,17 @@
 <template>
   <div>
     <headerConduit />
-    <div >
+    <div>
       <div class="profile-page">
         <div class="user-info">
           <div class="container">
             <div class="row">
               <div class="col-xs-12 col-md-10 offset-md-1">
-                <img
-                  :src="`${Profile.image}`"
-                  class="user-img"
-                />
+                <img :src="`${Profile.image}`" class="user-img" />
                 <h4>{{ Profile.username }}</h4>
                 <p></p>
                 <button class="btn btn-sm action-btn btn-outline-secondary">
-                  <i class="ion-plus-round"></i> Follow {{Profile.username}}
+                  <i class="ion-plus-round"></i> Follow {{ Profile.username }}
                 </button>
               </div>
             </div>
@@ -40,7 +37,11 @@
                 </ul>
               </div>
               <div>
-                <div class="article-preview" v-for="(val, index) in favorited" :key="index">
+                <div
+                  class="article-preview"
+                  v-for="(val, index) in favorited"
+                  :key="index"
+                >
                   <div class="article-meta">
                     <a class="" href="#@Zeynep"
                       ><img :src="`${val.author.images}`"
@@ -96,18 +97,17 @@ export default {
   //   this.loadFavoriteds(this.$route.params.username);
   // },
   mounted() {
-    
     this.loadFavoriteds(this.$route.params.username);
-    this.loadHeaderAuthor(this.$route.params.username)
+    this.loadHeaderAuthor(this.$route.params.username);
   },
   methods: {
-    ...mapActions(["loadFavoriteds","loadHeaderAuthor"]),
+    ...mapActions(["loadFavoriteds", "loadHeaderAuthor"]),
   },
   computed: {
-    ...mapState(["favorited","profile"]),
-    Profile(){
-      return this.profile.profile
-    }
+    ...mapState(["favorited", "profile"]),
+    Profile() {
+      return this.profile.profile;
+    },
   },
 };
 </script>

@@ -58,7 +58,7 @@ export default {
     footerConduit,
   },
   data() {
-    return { 
+    return {
       email: "",
       password: "",
       displayAlert: false,

@@ -1,5 +1,5 @@
 <template>
-    <a href="" class="tag-default tag-pill">‌{{ valueText }}</a>
+  <a href="" class="tag-default tag-pill">‌{{ valueText }}</a>
 </template>
 
 <script>

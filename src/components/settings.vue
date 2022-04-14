@@ -84,16 +84,16 @@ export default {
     };
   },
   computed: {
-    ...mapState(["updateUser","profile"]),
-     Profile(){
-        return this.profile.profile
-      },
+    ...mapState(["updateUser", "profile"]),
+    Profile() {
+      return this.profile.profile;
+    },
   },
 
   methods: {
-    ...mapActions(["loadUpdateUser","logout1","loadHeaderAuthor"]),
-    logout(){
-      this.logout1(this.$router.push('/conduit'))
+    ...mapActions(["loadUpdateUser", "logout1", "loadHeaderAuthor"]),
+    logout() {
+      this.logout1(this.$router.push("/conduit"));
     },
 
     // logout() {

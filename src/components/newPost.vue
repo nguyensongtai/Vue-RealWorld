@@ -112,7 +112,7 @@ export default {
             title: this.title,
           },
         };
-        const  datas  = await Axios({
+        const datas = await Axios({
           url: "https://conduit.productionready.io/api/articles",
           data: data,
           method: "POST",

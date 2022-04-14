@@ -3,7 +3,7 @@
     <!-- <div>header</div>
       <input v-model="text" type="text">
       <button @click="sendData2222222">send</button> -->
-      
+
     <header>
       <h1>TODOLIST</h1>
       <input

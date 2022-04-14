@@ -73,7 +73,7 @@ export default {
     headerConduit,
     footerConduit,
   },
-  
+
   data() {
     return {
       username: null,
@@ -88,21 +88,24 @@ export default {
     };
   },
   methods: {
-    ...mapActions(['register']),
-    signUp1 () {
-        let data = {
+    ...mapActions(["register"]),
+    signUp1() {
+      let data = {
         user: {
-              username: this.username,
-              email: this.email,
-              password: this.password,
-            },   
-        }
-      this.$store.dispatch('register', data,
-      localStorage.setItem("username", data.user.username)
-     )
-       .then(() => this.$router.push('/conduit/user'))
-       .catch(err => console.log(err))
-      },
+          username: this.username,
+          email: this.email,
+          password: this.password,
+        },
+      };
+      this.$store
+        .dispatch(
+          "register",
+          data,
+          localStorage.setItem("username", data.user.username)
+        )
+        .then(() => this.$router.push("/conduit/user"))
+        .catch((err) => console.log(err));
+    },
     // async signUp() {
     //   try {
     //     const response = await Axios.post(
@@ -139,7 +142,7 @@ export default {
     // },
   },
   computed: {
-    ...mapState(["user","token"]),
+    ...mapState(["user", "token"]),
   },
 };
 </script>

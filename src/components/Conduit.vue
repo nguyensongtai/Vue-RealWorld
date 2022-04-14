@@ -36,10 +36,10 @@ export default {
   },
 
   created() {
-   // this.loadAPI();
+    // this.loadAPI();
     this.loadTags();
-   // this.loadLists();
-   // this.loadPages();
+    // this.loadLists();
+    // this.loadPages();
   },
   mounted() {},
   methods: {
