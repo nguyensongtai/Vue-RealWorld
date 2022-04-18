@@ -57,6 +57,10 @@
         </div>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-9"></div>
+    </div>
   </div>
 </template>
 
@@ -123,9 +127,6 @@ export default {
 
 
 <style>
-  .article-preview {
-    text-align: left;
-  }
 </style>
 
 

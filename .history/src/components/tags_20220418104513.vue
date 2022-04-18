@@ -123,9 +123,6 @@ export default {
 
 
 <style>
-  .article-preview {
-    text-align: left;
-  }
 </style>
 
 

@@ -66,14 +66,7 @@ export default {
       item: [],
     };
   },
-  // mounted() {
-  //   const token = localStorage.getItem("token");
 
-  //   if (token) {
-  //     this.$router.push("/couduit/user" );
-  //   }
-
-  // },
   methods: {
     ...mapActions(["login"]),
     signIn() {
@@ -90,36 +83,9 @@ export default {
           localStorage.setItem("email", data.user.email),
           localStorage.setItem("username", data.user.username)
         )
-
         .then(() => this.$router.push("/conduit/user"))
-
         .catch((err) => console.log(err));
     },
-
-    // async signIn() {
-    //   try {
-    //     const response = await Axios.post(
-    //       "https://conduit.productionready.io/api/users/login",
-    //       {
-    //         user: {
-    //           email: this.email,
-    //           password: this.password,
-    //         },
-    //       }
-    //     );
-    //     if (response.status >= 200 && response.status <= 300) {
-    //       localStorage.setItem("token", response.data.user.token);
-    //       localStorage.setItem("username",response.data.user.username)
-    //        localStorage.setItem("email",response.data.user.email)
-    //       this.$router.push( "/conduit/user/yourfeed" );
-    //     }
-    //   } catch (error) {
-    //     if (error.response.status > 400) {
-    //       this.displayAlert = true;
-    //       this.errorAlert = "Email or password is invalid";
-    //     } else this.errorAlert = "";
-    //   }
-    // },
   },
   computed: {},
 };

@@ -322,6 +322,7 @@ export default new Vuex.Store({
     loadFavoriteds({ commit }, author) {
       Axios.get(`https://conduit.productionready.io/api/articles?favorited=${author}`)
         .then(data => {
+
           commit("loadFavoriteds", data.data.articles)
         })
     },

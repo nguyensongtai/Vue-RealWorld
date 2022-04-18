@@ -93,9 +93,17 @@ export default {
   methods: {
     ...mapActions(["loadUpdateUser", "logout1", "loadHeaderAuthor"]),
     logout() {
-      this.logout1(this.$router.push("/"));
+      this.logout1(this.$router.push("/conduit"));
     },
 
+    // logout() {
+    //   localStorage.removeItem("token");
+    //   localStorage.removeItem("bio");
+    //   localStorage.removeItem("image");
+    //   localStorage.removeItem("username");
+    //   localStorage.removeItem("email");
+    //   this.$router.push("/conduit");
+    // },
     async update() {
       const token = localStorage.getItem("token");
       try {

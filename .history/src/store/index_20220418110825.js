@@ -145,7 +145,7 @@ export default new Vuex.Store({
     loadCmts(state, data) {
       state.cmts = data
     },
-
+    
     loadAuthors(state, data) {
       state.authors = data
     },
@@ -212,7 +212,7 @@ export default new Vuex.Store({
     likeFavorite(state, like) {
       state.like = like
     },
-
+    
     favoritedAuthor(state, favorAuthor) {
       state.favorAuthor = favorAuthor
     },
@@ -322,6 +322,7 @@ export default new Vuex.Store({
     loadFavoriteds({ commit }, author) {
       Axios.get(`https://conduit.productionready.io/api/articles?favorited=${author}`)
         .then(data => {
+
           commit("loadFavoriteds", data.data.articles)
         })
     },
@@ -379,7 +380,7 @@ export default new Vuex.Store({
           })
       })
     },
-
+    
     login({ commit }, user) {
       return new Promise((resolve, reject) => {
         commit('auth_request')

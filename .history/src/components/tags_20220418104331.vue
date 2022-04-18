@@ -19,40 +19,41 @@
               </li>
             </ul>
           </div>
-          <div>
-            <articleConduit
-              v-for="(value, index) in lists"
-              :key="index"
-              :art="value"
-            />
-            <yourFeed
-              v-for="(value, index) in feed"
-              :key="index"
-              :feed="value"
-            />
-            <nav>
-              <ul class="pagination">
-                <page
-                  v-for="(val, index) in totalPage"
-                  :key="index"
-                  :pagess="val"
-                  @pageChanged="onPageChange"
-                ></page>
-                <!-- <page v-for="(value, index) in pages" :key="index"
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-9">
+        <div>
+          <articleConduit
+            v-for="(value, index) in lists"
+            :key="index"
+            :art="value"
+          />
+          <yourFeed v-for="(value, index) in feed" :key="index" :feed="value" />
+          <nav>
+            <ul class="pagination">
+              <page
+                v-for="(val, index) in totalPage"
+                :key="index"
+                :pagess="val"
+                @pageChanged="onPageChange"
+              ></page>
+              <!-- <page v-for="(value, index) in pages" :key="index"
                 :pagess="value"
                  @pageChanged="onPageChange"
               >
               </page> -->
-              </ul>
-            </nav>
-          </div>
+            </ul>
+          </nav>
         </div>
-        <div class="col-md-3">
-          <div class="sidebar">
-            <p>Popular Tags</p>
-            <div class="tag-list">
-              <tag v-for="(val, index) in tags" :key="index" :valueText="val" />
-            </div>
+      </div>
+      <div class="col-md-3">
+        <div class="sidebar">
+          <p>Popular Tags</p>
+          <div class="tag-list">
+            <tag v-for="(val, index) in tags" :key="index" :valueText="val" />
           </div>
         </div>
       </div>
@@ -123,9 +124,6 @@ export default {
 
 
 <style>
-  .article-preview {
-    text-align: left;
-  }
 </style>
 
 
