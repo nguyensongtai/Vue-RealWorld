@@ -1,5 +1,3 @@
-# training
-
 ## Project setup
 ```
 npm install
