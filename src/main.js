@@ -1,24 +1,27 @@
-import Vue from 'vue'
-import App from './App.vue'
-import './registerServiceWorker'
-import router from './router'
-import store from './store'
-import Axios from 'axios'
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
+import "./registerServiceWorker";
 
-// Vue.config.productionTip = false
-// Vue.prototype.$http = Axios;
-// const token = localStorage.getItem('token')
-// if(token){
-//   this.$router.push({path: "/couduit/user"})
-// }
-Vue.prototype.$http = Axios;
-const token = localStorage.getItem('token')
+import { CHECK_AUTH } from "./store/actions.type";
+import ApiService from "./common/api.service";
+import DateFilter from "./common/date.filter";
+import ErrorFilter from "./common/error.filter";
 
-if (token) {
-  Vue.prototype.$http.defaults.headers.common['authorization'] = `Token ${token}`
-}
+Vue.config.productionTip = false;
+Vue.filter("date", DateFilter);
+Vue.filter("error", ErrorFilter);
+
+ApiService.init();
+
+// Ensure we checked auth before each page load.
+router.beforeEach((to, from, next) =>
+  Promise.all([store.dispatch(CHECK_AUTH)]).then(next)
+);
+
 new Vue({
   router,
   store,
-  render: h => h(App)
-}).$mount('#app')
+  render: (h) => h(App)
+}).$mount("#app");

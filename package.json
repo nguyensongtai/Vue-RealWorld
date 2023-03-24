@@ -1,32 +1,54 @@
 {
-  "name": "training",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "start": "vue-cli-service serve",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
-  },
+  "author": "TaiNguyen <tainguyen06061999@gmail.com",
   "dependencies": {
-    "axios": "^0.21.0",
-    "core-js": "^3.6.5",
-    "register-service-worker": "^1.7.1",
-    "vue": "^2.6.11",
-    "vue-axios": "^3.2.0",
-    "vue-router": "^3.2.0",
-    "vuejs-paginate": "^2.1.0",
-    "vuejs-paginator": "^2.0.2",
-    "vuex": "^3.6.0"
+    "axios": "^0.19.0",
+    "date-fns": "^1.30.1",
+    "marked": "^0.7.0",
+    "register-service-worker": "^1.6.2",
+    "vue": "^2.6.10",
+    "vue-axios": "^2.1.4",
+    "vue-router": "^3.1.3",
+    "vuex": "^3.1.1"
   },
+  "description": "TodoMVC for the RealWorld™",
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-pwa": "~4.5.0",
-    "@vue/cli-plugin-router": "~4.5.0",
-    "@vue/cli-plugin-vuex": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@vue/cli-plugin-babel": "^3.12.0",
+    "@vue/cli-plugin-eslint": "^3.10.0",
+    "@vue/cli-plugin-pwa": "^3.10.0",
+    "@vue/cli-plugin-unit-jest": "^3.10.0",
+    "@vue/cli-service": "^3.10.0",
+    "@vue/eslint-config-prettier": "^4.0.1",
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^24.9.0",
+    "cross-env": "^6.0.3",
+    "lint-staged": "^8.2.1",
     "node-sass": "^4.12.0",
-    "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11",
-    "vuejs-paginator-axios": "^2.0.1"
-  }
+    "nyc": "^14.1.1",
+    "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "vue-cli-service lint",
+      "git add"
+    ],
+    "*.vue": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  },
+  "name": "realworld-vue",
+  "scripts": {
+    "build": "cross-env BABEL_ENV=dev vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "serve": "cross-env BABEL_ENV=dev vue-cli-service serve",
+    "test": "cross-env BABEL_ENV=test jest --coverage"
+  },
+  "version": "0.1.0"
 }
