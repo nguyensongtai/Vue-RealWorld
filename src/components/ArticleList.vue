@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div v-if="isLoading" class="article-preview">Loading articles...</div>
+    <div v-if="isLoading" class="article-preview loading">
+      <LoadingAnimation />
+    </div>
     <div v-else>
       <div v-if="articles.length === 0" class="article-preview">
         No articles are here... yet.
@@ -20,12 +22,14 @@ import { mapGetters } from "vuex";
 import RwvArticlePreview from "./VArticlePreview";
 import VPagination from "./VPagination";
 import { FETCH_ARTICLES } from "../store/actions.type";
+import LoadingAnimation from "./LoadingAnimation";
 
 export default {
   name: "RwvArticleList",
   components: {
     RwvArticlePreview,
-    VPagination
+    VPagination,
+    LoadingAnimation
   },
   props: {
     type: {
@@ -123,3 +127,9 @@ export default {
   }
 };
 </script>
+
+<style lang="css">
+.loading {
+  text-align: center;
+}
+</style>
