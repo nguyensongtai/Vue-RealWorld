@@ -1,5 +1,8 @@
 ## Project setup
 ```
+Install node v14
+```
+```
 npm install
 ```
 
